@@ -20,7 +20,7 @@ function App() {
 
     try {
       // API Link: חיבור לשרת ה-Backend
-      const response = await axios.post('http://localhost:5000/api/upload', formData);
+      const response = await axios.post('http://localhost:3001/api/summarize', formData);
       setSummary(response.data.summary);
     } catch (error) {
       console.error("Error uploading file:", error);

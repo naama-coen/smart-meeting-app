@@ -1,10 +1,13 @@
 const express = require('express');
+const cors = require('cors'); // הוספת הספרייה
+
+const app = express();
+app.use(cors());
 const multer = require('multer');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { GoogleAIFileManager } = require("@google/generative-ai/server");
 require('dotenv').config();
 
-const app = express();
 const upload = multer({ dest: 'uploads/' }); // שמירה זמנית של הקובץ
 const fileManager = new GoogleAIFileManager(process.env.GEMINI_API_KEY);
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
