@@ -1,42 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap');
+
+/* 1. איפוס וניקוי כללי */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100% !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background: radial-gradient(circle at top right, #e0e7ff, transparent),
+              radial-gradient(circle at bottom left, #f3e8ff, transparent);
+  background-color: #f8fafc;
+  font-family: 'Assistant', sans-serif;
+  direction: rtl;
+  color: #1e293b;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.App {
+  width: 100%;
+  max-width: 1100px; /* הגדלנו מעט כדי שכרטיסיות יכנסו יפה אחת ליד השנייה */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* 2. כותרות */
+h1 {
+  font-weight: 800;
+  font-size: clamp(2.5rem, 7vw, 3.5rem);
+  background: linear-gradient(135deg, #f35a3f 0%, #7055f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+  width: 100%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ai-subtitle {
+  color: #64748b;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  font-weight: 400;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* 3. אזור העלאת קבצים */
+.upload-section {
+  background: none;
+  width: 100%;
+  max-width: 550px;
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.file-label-styled {
+  display: block;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #f1f5f9;
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #475569;
+  width: 100%;
+}
+
+.file-label-styled:hover {
+  background: #e2e8f0;
+  border-color: #6366f1;
+}
+
+/* 4. כפתורים */
+.main-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  color: white;
+  border: none;
+  padding: 18px 50px;
+  border-radius: 18px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.main-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+}
+
+.main-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.secondary-btn {
+  background: none;
+  border: 1.5px solid #6366f1;
+  color: #6366f1;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.secondary-btn:hover {
+  background: rgba(99, 102, 241, 0.05);
+  transform: translateX(-5px);
+}
+
+/* 5. גריד של כרטיסיות (Dashboard) */
+.result-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  width: 100%;
 }
 
 .card {
-  padding: 2em;
+  background: none;
+  border-radius: 24px;
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
-.read-the-docs {
-  color: #888;
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.full-width-card {
+  grid-column: 1 / -1;
+}
+
+.highlight-card {
+  border-right: 6px solid #6366f1;
+  background: linear-gradient(to bottom left, #ffffff, #f9fafb);
+}
+
+.card-tag {
+  background: #f1f5f9;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #6366f1;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.summary-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #334155;
+}
+
+/* 6. Checklist ומשימות */
+.action-list {
+  list-style: none;
+  padding: 0;
+}
+
+.action-item-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #f8fafc;
+  margin-bottom: 10px;
+  padding: 16px;
+  border-radius: 14px;
+  transition: 0.2s;
+}
+
+.action-item-checkbox:hover {
+  background: #f1f5f9;
+}
+
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #6366f1;
+}
+
+/* 7. אנימציות וטעינה */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* התאמה לנייד */
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .App {
+    padding: 40px 15px;
+  }
 }

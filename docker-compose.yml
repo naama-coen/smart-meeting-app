@@ -8,10 +8,16 @@ services:
       - ./backend/.env
     volumes:
       - ./backend/uploads:/app/uploads
+      - ./backend:/app # מאפשר עדכון קוד גם בשרת ללא בנייה
 
   frontend:
     build: ./frontend
     ports:
-      - "5173:5173" # בהנחה שאתם משתמשים ב-Vite
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app          # הצינור שמעביר שינויי CSS ו-JSX מיידית
+      - /app/node_modules        # חשוב: מונע מדוקר לדרוס את הספריות המותקנות
+    environment:
+      - CHOKIDAR_USEPOLLING=true # פותר בעיות סנכרון במערכות ווינדוס
     depends_on:
       - backend

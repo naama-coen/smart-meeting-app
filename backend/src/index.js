@@ -8,6 +8,8 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { GoogleAIFileManager } = require("@google/generative-ai/server");
 require('dotenv').config();
 
+console.log("Key exists:", !!process.env.GEMINI_API_KEY)
+
 const upload = multer({ dest: 'uploads/' }); // שמירה זמנית של הקובץ
 const fileManager = new GoogleAIFileManager(process.env.GEMINI_API_KEY);
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -23,7 +25,7 @@ app.post('/api/summarize', upload.single('audio'), async (req, res) => {
     });
 
     // 2. קריאה ל-Gemini 1.5 Flash לניתוח האודיו
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "models/gemini-2.5-flash" });
     const result = await model.generateContent([
       {
         fileData: {
@@ -35,8 +37,13 @@ app.post('/api/summarize', upload.single('audio'), async (req, res) => {
     ]);
 
     res.json({ success: true, data: result.response.text() });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  }catch (error) {
+    // זה ידפיס לטרמינל את הסיבה המדויקת (למשל: תיקייה חסרה או פורמט לא נתמך)
+    console.error("שגיאה בניתוח הפגישה:", error); 
+    res.status(500).json({ 
+      error: "משהו השתבש בשרת", 
+      details: error.message 
+    });
   }
 });
 
