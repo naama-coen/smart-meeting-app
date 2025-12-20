@@ -1,0 +1,95 @@
+[
+  {
+    "id": "test-1766048034699",
+    "createdAt": "2025-12-18T08:53:54.699Z",
+    "originalFileName": "test.mp3",
+    "summary": {
+      "text": "זהו סיכום בדיקה",
+      "actionItems": []
+    }
+  },
+  {
+    "id": "1766058122836",
+    "createdAt": "2025-12-18T11:42:02.836Z",
+    "originalFileName": "05 ×× × ×©××¢.mp3",
+    "summary": "```json\n{\n  \"summary\": \"This song is a deeply spiritual prayer and supplication, echoing themes common in Jewish liturgy. It opens with a heartfelt call to 'Hear our plea,' followed by an invocation to 'Remember His secret and cleave to Him.' A central message is the profound hope that 'our kindness will never be extinguished forever' and that 'His light will always shine brightly.' The repetitive nature of these phrases emphasizes the earnestness of the prayer and the desire for enduring devotion, persistent acts of kindness, and the perpetual presence of divine light. The song culminates by invoking the merit of these actions and qualities as a basis for the prayer to be answered.\",\n  \"action_items\": [\n    \"Engage in personal reflection and heartfelt prayer, seeking a deeper spiritual connection.\",\n    \"Cultivate mindfulness to remember divine wisdom and strive for devotion and adherence to spiritual principles.\",\n    \"Actively practice and sustain acts of kindness and compassion, ensuring their lasting impact.\",\n    \"Strive to embody and spread positivity and light in the world, reflecting divine illumination.\"\n  ]\n}\n```"
+  },
+  {
+    "id": "1766058285044",
+    "createdAt": "2025-12-18T11:44:45.044Z",
+    "originalFileName": "06 ××× ×××× ×.mp3",
+    "summary": "```json\n{\n  \"audio_analysis_report\": {\n    \"title\": \"Analysis of Hasidic/Jewish Music Track\",\n    \"date\": \"2023-10-27\",\n    \"type\": \"Music - Hasidic/Jewish (Klezmer/Niggun style)\",\n    \"key_points\": [\n      \"The track features an upbeat, celebratory Hasidic/Jewish musical piece with strong Klezmer influences, characterized by a fast tempo and energetic instrumentation.\",\n      \"The primary language of the vocals is Hebrew, interspersed with common wordless vocalizations ('איי טרלע לאי', etc.) typical of Niggunim (Hasidic melodies) and Klezmer music.\",\n      \"Lyrical themes consistently revolve around Jewish identity and devotion. Repeated phrases like 'מה ליהודאי נשמה' (What is for a Jewish soul?) and 'ומי מלכני' (and who is my King?) highlight a spiritual search and recognition of divine sovereignty.\",\n      \"Other recurring phrases such as 'ובמי ובמי נתתה מכיני מכיני מילא' (And to whom did you give my preparations/kings, fill up?) and 'המויל חמויל ליהודאיני' (The circumciser/He who forgives, have mercy on my Jew) further emphasize themes of tradition, divine mercy, and the Jewish covenant, though some phrases appear to be dialectal or poetic interpretations common in this genre.\",\n      \"Musically, the piece is driven by a powerful brass section (trumpets, trombones), dynamic percussion (drums, cymbals), and underlying string/keyboard accompaniment, creating a joyous and communal atmosphere.\",\n      \"A significant key change occurs around 2:50, elevating the intensity and excitement, which is a common technique in celebratory Jewish music to build a crescendo towards the song's climax.\"\n    ],\n    \"action_items\": [\n      {\n        \"id\": \"AI-001\",\n        \"description\": \"Provide a full, line-by-line phonetic transcription and Hebrew text of the entire vocal performance for precise reference.\",\n        \"status\": \"pending\",\n        \"assigned_to\": \"Analyst\",\n        \"due_date\": \"N/A\"\n      },\n      {\n        \"id\": \"AI-002\",\n        \"description\": \"Deliver a comprehensive English translation of all Hebrew lyrical content, including nuanced interpretations of less common or dialectal phrases to convey the full spiritual message.\",\n        \"status\": \"pending\",\n        \"assigned_to\": \"Analyst\",\n        \"due_date\": \"N/A\"\n      },\n      {\n        \"id\": \"AI-003\",\n        \"description\": \"Detail the musical instrumentation, identifying specific instruments and their roles in contributing to the track's overall dynamic and genre characteristics.\",\n        \"status\": \"pending\",\n        \"assigned_to\": \"Analyst\",\n        \"due_date\": \"N/A\"\n      },\n      {\n        \"id\": \"AI-004\",\n        \"description\": \"Contextualize the song's style and lyrical content within the broader genre of Hasidic/Jewish music, discussing its typical use cases (e.g., weddings, festive gatherings, prayer).\",\n        \"status\": \"pending\",\n        \"assigned_to\": \"Analyst\",\n        \"due_date\": \"N/A\"\n      }\n    ]\n  }\n}\n```"
+  },
+  {
+    "id": "1766059221129",
+    "createdAt": "2025-12-18T12:00:21.130Z",
+    "originalFileName": "01 ×××××.mp3",
+    "summary": "```json\n{\n  \"meeting_analysis\": {\n    \"title\": \"ניתוח תוכן שיר: 'הלוואי'\",\n    \"main_points\": [\n      \"השיר מבטא כמיהה ותקווה עמוקה לביאת המשיח ולגאולה השלמה ('הלוואי שמשיח יבוא').\",\n      \"ישנה ציפייה ליום בו כל יהודי יאמר 'אחכה לו' ויתגשמו התפילות ('שיגיע כבר היום').\",\n      \"הקשר לירושלים הוא מרכזי ובלתי נפרד ('אם אשכחך ירושלים תשכח ימיני', 'הלוואי לירושלים').\",\n      \"תקווה לחזרה לציון ולמקום הקדוש, ללא מלחמות, ורק עם שלום ושלווה.\",\n      \"השיר הוא תפילה קולקטיבית לאחדות ולחזרת עם ישראל למקומו ולייעודו.\"\n    ],\n    \"action_items\": [\n      {\n        \"item\": \"להמשיך ולייחל לביאת המשיח ולהתפלל לגאולה השלמה.\",\n        \"responsible\": \"כלל הציבור/המאזינים\"\n      },\n      {\n        \"item\": \"לשמור על הקשר והזכרון של ירושלים וציון, ולהכיר בחשיבותם הרוחנית וההיסטורית.\",\n        \"responsible\": \"כלל הציבור/המאזינים\"\n      },\n      {\n        \"item\": \"לחתור לשלום, אחדות, ומוכנות רוחנית לקראת הגאולה והחזרה לארץ ישראל.\",\n        \"responsible\": \"כלל הציבור/המאזינים\"\n      }\n    ],\n    \"notes\": \"ניתוח זה מתייחס למסרים ותובנות העולים מתוך מילות השיר, ולא לסיכום פגישה עסקית סטנדרטית. המשימות לביצוע מנוסחות בהקשר של מסרים רוחניים והתנהגות נלווית.\"\n  }\n}\n```"
+  },
+  {
+    "id": "1766261206314",
+    "createdAt": "2025-12-20T20:06:46.315Z",
+    "originalFileName": "Track 01.mp3",
+    "summary": "```json\n{\n  \"meeting_title\": \"הרצאה: גבר אמיתי (Lecture: A True Man)\",\n  \"speaker\": \"הרב בלאסטרי (Rabbi Lastry)\",\n  \"date\": \"N/A (not specified in audio)\",\n  \"main_points\": [\n    {\n      \"title\": \"השאיפה להנאה ככוח מניע\",\n      \"description\": \"ההרצאה מתחילה בהדגשה כי גבר אמיתי פועל מתוך שאיפה להנאה, בעיקר בהקשר של זוגיות, בית ומשפחה. כל תנועה ופעולה שאדם עושה בעולם, מונעת מהרצון ליהנות ולחיות חיים מלאים ומהנים.\"\n    },\n    {\n      \"title\": \"מגבלות ההנאה האנושית\",\n      \"description\": \"הרב מדגים באמצעות אנקדוטות והומור את המגבלות הטבעיות על יכולת האדם ליהנות. הוא מציג כיצד תוכניות רבות שצמחים צעירים נאלצות להשתנות מול מציאות החיים (משל הגל והחוף). כמו כן, קיימות מגבלות פיזיות על כמה אוכל ניתן לאכול או כמה שעות שינה אדם יכול לישון, ואפילו עושר אדיר אינו מונע בעיות יומיומיות (דוגמת ביל גייטס וכאבי גב).\"\n    },\n    {\n      \"title\": \"הכל ב'ערבון מוגבל'\",\n      \"description\": \"המסר המרכזי והעמוק של ההרצאה הוא שכל מה שיש לאדם בחיים – כסף, רכוש, בריאות ואף החיים עצמם – ניתן לו 'בערבון מוגבל'. כלומר, לא ניתן לשמור עליהם לנצח וקיימת עליהם אחריות מוגבלת. הבנה זו אמורה להוביל להתבוננות מחודשת על סדרי העדיפויות בחיים ועל משמעותה האמיתית של הנאה.\"\n    }\n  ],\n  \"action_items\": [\n    {\n      \"item\": \"לבחון מחדש את מקורות ההנאה בחיים.\",\n      \"description\": \"להרהר אילו דברים באמת מביאים סיפוק והנאה מתמשכת, ולהבדילם מהנאות רגעיות או חומריות בעלות מגבלות.\"\n    },\n    {\n      \"item\": \"להכיר במגבלות האנושיות והקיומיות.\",\n      \"description\": \"להפנים שגם עושר, כוח או תוכניות מפורטות אינם מבטלים את מגבלות הזמן, הגוף והנפש של האדם.\"\n    },\n    {\n      \"item\": \"לנהוג בגמישות כלפי תוכניות וציפיות.\",\n      \"description\": \"ללמוד מהחיים ומהמציאות המשתנה, ולהיות מוכנים להתאים את התוכניות האישיות בהתאם, במקום לדבוק בהן בעקשנות.\"\n    },\n    {\n      \"item\": \"להתמקד במה שבעל ערך שאינו מוגבל.\",\n      \"description\": \"לאור ההבנה שהכל 'בערבון מוגבל', לשקול להשקיע יותר בקשרים משפחתיים, רוחניות, ובתרומה אישית שמעניקה משמעות עמוקה יותר לחיים.\"\n    }\n  ],\n  \"language\": \"Hebrew\"\n}\n```"
+  },
+  {
+    "id": "1766261712851",
+    "createdAt": "2025-12-20T20:15:12.851Z",
+    "originalFileName": "××××× ×¦×¢× ×× × ××× - ××¨× ××¦××§ ×¤× ××¨ - 34363180.mp3",
+    "summary": "```json\n{\n  \"title\": \"ניתוח קטע אודיו: בדיחת הצעת נישואין\",\n  \"summary\": [\n    \"גבר כרע ברך על מנת להציע נישואין לאישה.\",\n    \"במהלך הכריעה, אגן הירכיים שלו 'נדפק' (ייתכן שהתנתק/התקע) והוא חווה כאב.\",\n    \"הוא פנה לרופא בגין הכאב שחש באגן.\",\n    \"הרופא התבדח שאולי 'עשה צעד לא נכון' (משחק מילים על תנועה פיזית והחלטה בחייו).\",\n    \"הגבר הסכים עם האבחנה ההומוריסטית של הרופא.\"\n  ],\n  \"action_items\": [\n    \"לסכם את נקודות המפתח מהקטע הקולי.\",\n    \"לזהות ולרשום פריטי פעולה (אם קיימים) הקשורים לתוכן או לבקשה.\",\n    \"להחזיר את הנתונים בפורמט JSON מסודר.\"\n  ]\n}\n```"
+  },
+  {
+    "id": "1766261852370",
+    "createdAt": "2025-12-20T20:17:32.370Z",
+    "originalFileName": "××××× ×¦×¢× ×× × ××× - ××¨× ××¦××§ ×¤× ××¨ - 34363180.mp3",
+    "summary": "```json\n{\n  \"summary\": \"הקטע מספר בדיחה על בחור שהציע נישואין. כשכרע ברך לצורך ההצעה, נפגעה לו הגב/אגן. הוא הלך לרופא, ששאל מה קרה. הרופא ענה בהומור: 'אולי עשית צעד לא נכון', והבחור ענה: 'יכול להיות שאתה צודק'.\",\n  \"key_points\": [\n    \"בחור הציע נישואין.\",\n    \"הוא כרע ברך כדי להציע נישואין.\",\n    \"נפגע לו הגב/אגן כתוצאה מכריעת הברך.\",\n    \"הוא פנה לרופא בעקבות הפגיעה.\",\n    \"הרופא רמז בהומור, 'אולי עשית צעד לא נכון' (ברמיזה כפולה לפעולה הפיזית וגם להצעת הנישואין).\",\n    \"הבחור הסכים בהומור עם הרופא ואמר 'יכול להיות שאתה צודק'.\"\n  ],\n  \"action_items\": []\n}\n```"
+  },
+  {
+    "id": "1766262981411",
+    "createdAt": "2025-12-20T20:36:21.411Z",
+    "originalFileName": "××××× ×¦×¢× ×× × ××× - ××¨× ××¦××§ ×¤× ××¨ - 34363180.mp3",
+    "summary": "```json\n{\n  \"title\": \"Humorous Proposal Injury\",\n  \"date\": \"\",\n  \"summary\": \"The audio describes a humorous anecdote about a man who hurt his back while proposing marriage by kneeling down. When he sought medical attention, the doctor playfully suggested he might have taken a 'wrong step,' to which the man responded that the doctor could be right.\",\n  \"key_points\": [\n    \"A man proposed marriage by kneeling down.\",\n    \"He injured his back during the proposal.\",\n    \"He visited a doctor for his back pain.\",\n    \"The doctor humorously implied he might have made a 'wrong step' (pun intended).\",\n    \"The man acknowledged the doctor's humorous remark as potentially accurate.\"\n  ],\n  \"action_items\": []\n}\n```"
+  },
+  {
+    "id": "1766263424668",
+    "createdAt": "2025-12-20T20:43:44.668Z",
+    "originalFileName": "××××× ×¦×¢× ×× × ××× - ××¨× ××¦××§ ×¤× ××¨ - 34363180.mp3",
+    "summary": "```json\n{\n  \"title\": \"כריעת ברך שהסתבכה\",\n  \"date\": \"\",\n  \"summary\": \"בחור שהציע נישואין וכרע ברך, נתקע לו הגב כתוצאה מהתנועה. כשפנה לרופא, הוא קיבל הערה משעשעת שאולי עשה \\\"צעד לא נכון\\\", והבחור הסכים עם האבחנה.\",\n  \"key_points\": [\n    \"הצעת נישואין שכללה כריעת ברך.\",\n    \"פציעה בגב (נתקע לו הגב) במהלך כריעת הברך.\",\n    \"תגובת הרופא עם משחק מילים על \\\"צעד לא נכון\\\" שהוביל לפציעה.\"\n  ],\n  \"action_items\": []\n}\n```"
+  },
+  {
+    "id": "1766263577221",
+    "createdAt": "2025-12-20T20:46:17.221Z",
+    "originalFileName": "××××× ×¦×¢× ×× × ××× - ××¨× ××¦××§ ×¤× ××¨ - 34363180.mp3",
+    "summary": "```json\n{\n  \"title\": \"בדיחה: הצעת נישואין וכאבי גב\",\n  \"date\": \"\",\n  \"summary\": \"בחור הציע נישואין לבת זוגתו וכרע ברך, אך במהלך המעשה נתפס לו הגב. כשפנה לרופא בבקשת עזרה, קיבל תגובה הומוריסטית עם משמעות כפולה לגבי ה'צעד' שעשה, והבחור הסכים בהומור.\",\n  \"key_points\": [\n    \"בחור הציע נישואין וכרע ברך.\",\n    \"גבו נתפס באופן פיזי כתוצאה מכריעת הברך.\",\n    \"הפונה התייעץ עם רופא לגבי כאבי הגב.\",\n    \"הרופא הגיב בהומור שמתייחס הן לצעד הפיזי והן לצעד של הצעת הנישואין.\",\n    \"הבחור הסכים בהומור לאפשרות שהרופא צודק.\"\n  ],\n  \"action_items\": []\n}\n```"
+  },
+  {
+    "id": "1766263585907",
+    "createdAt": "2025-12-20T20:46:25.907Z",
+    "originalFileName": "××××× ×¦×¢× ×× × ××× - ××¨× ××¦××§ ×¤× ××¨ - 34363180.mp3",
+    "summary": "```json\n{\n  \"title\": \"הצעת נישואין ו'צעד לא נכון'\",\n  \"date\": \"\",\n  \"summary\": \"סיפור הומוריסטי על בחור שהציע נישואין, נפגע בגבו כשכרע ברך, והרופא רמז לו שאולי עשה 'צעד לא נכון' במובן כפול של המילה.\",\n  \"key_points\": [\n    \"בחור הציע נישואין וכרע ברך.\",\n    \"הוא נפגע בגבו במהלך הכריעה.\",\n    \"הבחור פנה לרופא עקב כאבי הגב.\",\n    \"הרופא רמז בהומור שהבחור אולי עשה 'צעד לא נכון'.\",\n    \"הבחור קיבל את הרמז והסכים עם הרופא.\"\n  ],\n  \"action_items\": []\n}\n```"
+  },
+  {
+    "id": "1766263733864",
+    "createdAt": "2025-12-20T20:48:53.864Z",
+    "originalFileName": "××××× ×¦×¢× ×× × ××× - ××¨× ××¦××§ ×¤× ××¨ - 34363180.mp3",
+    "summary": "```json\n{\n  \"title\": \"הצעת נישואין כואבת\",\n  \"date\": \"\",\n  \"summary\": \"בחור כרע ברך כדי להציע נישואין, אך נפגעה לו הגב בתהליך. כשפנה לרופא, הרופא רמז לו שאולי עשה 'צעד לא נכון', והגבר הסכים עם האבחנה ההומוריסטית.\",\n  \"key_points\": [\n    \"בחור הציע נישואין וכרע ברך.\",\n    \"כתוצאה מכריעת הברך, נפגעה לו הגב.\",\n    \"פנה לרופא בגלל כאבי הגב.\",\n    \"הרופא רמז שהבחור אולי 'עשה צעד לא נכון' (רמז כפול למצב הפיזי והרומנטי).\",\n    \"הבחור הסכים עם האפשרות שהרופא צודק.\"\n  ],\n  \"action_items\": [\n    {\n      \"description\": \"להקפיד על טכניקה נכונה בעת כריעת ברך להצעת נישואין כדי למנוע פגיעות גב.\",\n      \"assigned_to\": \"הבחור המציע\",\n      \"status\": \"בטיפול\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "id": "1766263743060",
+    "createdAt": "2025-12-20T20:49:03.060Z",
+    "originalFileName": "××××× ×¦×¢× ×× × ××× - ××¨× ××¦××§ ×¤× ××¨ - 34363180.mp3",
+    "summary": "```json\n{\n  \"title\": \"הצעת נישואין וכאבי גב\",\n  \"date\": \"\",\n  \"summary\": \"סיפור הומוריסטי על בחור שהציע נישואין בכריעת ברך, אך כתוצאה מכך נתפס לו הגב. כשפנה לרופא, הרופא רמז בהומור שאולי עשה 'צעד לא נכון'.\",\n  \"key_points\": [\n    \"בחור כרע ברך על מנת להציע נישואין.\",\n    \"כתוצאה מכריעת הברך, נתקע לבחור הגב.\",\n    \"הרופא הגיב בהומור שייתכן שהבחור עשה 'צעד לא נכון', במשמעות כפולה.\"\n  ],\n  \"action_items\": []\n}\n```"
+  },
+  {
+    "id": "1766264045591",
+    "createdAt": "2025-12-20T20:54:05.591Z",
+    "originalFileName": "××××× ×¦×¢× ×× × ××× - ××¨× ××¦××§ ×¤× ××¨ - 34363180.mp3",
+    "summary": "```json\n{\n  \"title\": \"בדיחת כאבי גב והצעת נישואין\",\n  \"date\": \"\",\n  \"summary\": \"הקלטה מציגה בדיחה על בחור שהציע נישואין, כרע ברך ונתפס לו הגב. כשפנה לרופא, הרופא רמז לו בצחוק שאולי עשה 'צעד לא נכון'.\",\n  \"key_points\": [\n    \"בחור הציע נישואין וכרע ברך.\",\n    \"כתוצאה מכריעת הברך, נתפס לו הגב.\",\n    \"הרופא שאל אותו בהומור אם עשה 'צעד לא נכון', רומז גם להצעת הנישואין וגם לתנועה הפיזית.\"\n  ],\n  \"action_items\": [],\n  \"conclusion\": \"הסיפור הוא בדיחה המשלבת הומור על כאבי גב כתוצאה מכריעת ברך בהצעת נישואין, עם משחק מילים על המונח 'צעד לא נכון'.\"\n}\n```"
+  },
+  {
+    "id": "1766264081643",
+    "createdAt": "2025-12-20T20:54:41.643Z",
+    "originalFileName": "××××× ×¦×¢× ×× × ××× - ××¨× ××¦××§ ×¤× ××¨ - 34363180.mp3",
+    "summary": "```json\n{\n  \"title\": \"הצעת נישואין וכאב גב\",\n  \"date\": \"\",\n  \"summary\": \"השיחה מתארת בדיחה על בחור שהציע נישואין, כרע ברך ושאל 'Will you marry me', אך כתוצאה מכך נתפס לו הגב. הוא פנה לרופא, והרופא העלה את האפשרות שהוא עשה 'צעד לא נכון', רמיזה כפולה הן לתנוחה והן להחלטה.\",\n  \"key_points\": [\n    \"בחור הציע נישואין וכרע ברך.\",\n    \"התנוחה גרמה לו לכאב גב והאגן שלו נתקע.\",\n    \"הוא פנה לרופא ששאל מה קרה.\",\n    \"הרופא הציע באופן הומוריסטי שהבחור עשה 'צעד לא נכון'.\"\n  ],\n  \"action_items\": [],\n  \"conclusion\": \"הבדיחה מסתיימת בהבנה שהצעד הלא נכון יכול להתפרש גם כסיבה פיזית לכאב וגם כהחלטה שנויה במחלוקת לגבי הנישואין עצמם.\"\n}\n```"
+  }
+]
