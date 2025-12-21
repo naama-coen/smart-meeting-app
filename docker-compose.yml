@@ -10,6 +10,7 @@ services:
       - ./backend/.env
     volumes:
       - ./backend/uploads:/app/uploads
+      - ./backend/data:/app/data
 
   frontend:
     build: ./frontend
@@ -17,3 +18,5 @@ services:
       - "5173:5173" # בהנחה שאתם משתמשים ב-Vite
     depends_on:
       - backend
+    environment:
+    - GEMINI_API_KEY=${GEMINI_API_KEY}
