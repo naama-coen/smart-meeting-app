@@ -28,7 +28,6 @@ pipeline {
         stage('Deploy (Docker)') {
             steps {
                 script {
-                    // עצירת קונטיינר ישן אם קיים והרצת החדש
                     sh "docker stop my-app || true"
                     sh "docker rm my-app || true"
                     sh "docker run -d --name my-app -p 3000:3000 my-node-app:${env.BUILD_NUMBER}"
