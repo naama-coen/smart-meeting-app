@@ -6,7 +6,7 @@ pipeline {
   }
 
   stages {
-    stage('frontend - Install & Test') {
+    stage('Frontend - Install & Test') {
       steps {
         dir('frontend') {
           sh 'node -v'
@@ -26,19 +26,24 @@ pipeline {
       }
     }
 
-    stage('Build Docker Image') {
+    stage('Build Docker Images') {
       steps {
-        // אם ה-Dockerfile בשורש הריפו - להשאיר ככה.
-        // אם הוא בתוך frontend/backend - תגידי לי איפה והוא צריך להיות בתוך dir('...').
-        sh "docker build -t my-node-app:${env.BUILD_NUMBER} ."
+        sh "docker build -t smart-frontend:${env.BUILD_NUMBER} -f frontend/Dockerfile frontend"
+        sh "docker build -t smart-backend:${env.BUILD_NUMBER} -f backend/Dockerfile backend"
       }
     }
 
     stage('Deploy (Docker)') {
       steps {
-        sh "docker stop my-app || true"
-        sh "docker rm my-app || true"
-        sh "docker run -d --name my-app -p 3000:3000 my-node-app:${env.BUILD_NUMBER}"
+        // Backend (שני ב-3001 לדוגמה)
+        sh "docker stop smart-backend || true"
+        sh "docker rm smart-backend || true"
+        sh "docker run -d --name smart-backend -p 3001:3000 smart-backend:${env.BUILD_NUMBER}"
+
+        // Frontend (ב-3000)
+        sh "docker stop smart-frontend || true"
+        sh "docker rm smart-frontend || true"
+        sh "docker run -d --name smart-frontend -p 3000:3000 smart-frontend:${env.BUILD_NUMBER}"
       }
     }
   }
