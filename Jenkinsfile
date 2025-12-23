@@ -1,17 +1,21 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'node20'
+    }
+
     stages {
         stage('Install Dependencies') {
             steps {
-                // התקנת חבילות לצורך הבדיקות
+                sh 'node -v'
+                sh 'npm -v'
                 sh 'npm install'
             }
         }
 
         stage('Run Unit Tests') {
             steps {
-                // הרצת הטסטים - אם שלב זה נכשל, ה-Pipeline יעצור
                 sh 'npm test'
             }
         }
@@ -19,7 +23,6 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // בניית האימג' עם תגית של מספר הבילד
                     sh "docker build -t my-node-app:${env.BUILD_NUMBER} ."
                 }
             }
