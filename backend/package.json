@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-"test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles",
+    "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles",
     "test:coverage": "jest --coverage",
+    "start": "node index.js",
     "test:watch": "jest --watch"
   },
   "keywords": [],

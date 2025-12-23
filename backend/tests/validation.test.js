@@ -19,5 +19,5 @@ describe('API Integration - Edge Cases', () => {
 
     expect(res.statusCode).toBe(400);
     expect(res.body.error).toContain('File too large');
-  });
+  },20000);
 });

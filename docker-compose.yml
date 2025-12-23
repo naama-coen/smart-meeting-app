@@ -1,7 +1,6 @@
-version: '3.8'
+version: "3.8"
+
 services:
-  environment:
-    - GEMINI_API_KEY=${GEMINI_API_KEY}
   backend:
     build: ./backend
     ports:
@@ -10,18 +9,14 @@ services:
       - ./backend/.env
     volumes:
       - ./backend/uploads:/app/uploads
-      - ./backend:/app # מאפשר עדכון קוד גם בשרת ללא בנייה
 
   frontend:
     build: ./frontend
     ports:
       - "5173:5173"
     volumes:
-      - ./frontend:/app          # הצינור שמעביר שינויי CSS ו-JSX מיידית
-      - /app/node_modules        # חשוב: מונע מדוקר לדרוס את הספריות המותקנות
-    environment:
-      - CHOKIDAR_USEPOLLING=true # פותר בעיות סנכרון במערכות ווינדוס
+      - ./frontend:/app
+      - /app/node_modules
     depends_on:
       - backend
-    environment:
-    - GEMINI_API_KEY=${GEMINI_API_KEY}
+
