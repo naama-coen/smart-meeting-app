@@ -1,30 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap');
 
-/* 1. איפוס וניקוי כללי
-{
+/* 1. איפוס וניקוי כללי */
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-} */
+}
 
-html,
-body {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
+html, body {
+  width: 100% !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
   overflow-x: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 body {
   background: radial-gradient(circle at top right, #e0e7ff, transparent),
-    radial-gradient(circle at bottom left, #f3e8ff, transparent);
+              radial-gradient(circle at bottom left, #f3e8ff, transparent);
   background-color: #f8fafc;
   font-family: 'Assistant', sans-serif;
   direction: rtl;
   color: #1e293b;
-  display: flex;
-  justify-content: center;
 }
 
 #root {
@@ -35,11 +34,12 @@ body {
 
 .App {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1100px; /* הגדלנו מעט כדי שכרטיסיות יכנסו יפה אחת ליד השנייה */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 60px 20px;
+  text-align: center;
 }
 
 /* 2. כותרות */
@@ -50,12 +50,7 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 12px;
-  text-align: center;
   width: 100%;
-}
-
-h3{
-  margin-bottom: 10px;
 }
 
 .ai-subtitle {
@@ -63,15 +58,17 @@ h3{
   font-size: 1.2rem;
   margin-bottom: 40px;
   font-weight: 400;
-  text-align: center;
   width: 100%;
 }
 
-/* 3. אזור העלאת קבצים (דף הבית) */
+/* 3. אזור העלאת קבצים */
 .upload-section {
+  background: none;
   width: 100%;
   max-width: 550px;
+  backdrop-filter: blur(10px);
   padding: 50px;
+  border-radius: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,7 +85,6 @@ h3{
   transition: all 0.3s ease;
   color: #475569;
   width: 100%;
-  text-align: center;
 }
 
 .file-label-styled:hover {
@@ -96,465 +92,123 @@ h3{
   border-color: #6366f1;
 }
 
-/* המיכל הראשי - עוגן עבור הכפתור */
-.result-section {
-  width: 100%;
-  position: relative;
-  /* חובה! זה יוצר את הגבולות של הכפתור */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 80px;
-  /* מרווח קבוע מלמעלה כדי שהכפתור לא יסתיר כלום */
-}
-
-.back-to-upload-btn {
-  /* זה הסוד - הצמדה לחלון הדפדפן */
-  position: absolute;
-  top: 230px;
-  /* מרחק מהקצה העליון */
-  right: 90px;
-  /* מרחק מהקצה הימני */
-
-  background: none;
-  border: 2px solid #6366f1;
-  color: #6366f1;
-  padding: 15px 25px;
-  border-radius: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  z-index: 9999;
-  /* מוודא שהוא תמיד מעל הכל */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
-}
-
-.back-to-upload-btn:hover {
-  background-color: #f5f3ff;
-  transform: translateY(-2px);
-}
-
-/* בטלפון - נזיז אותו קצת שלא יפריע */
-@media (max-width: 768px) {
-  .back-to-upload-btn {
-    top: 20px;
-    right: 20px;
-    padding: 8px 15px;
-    font-size: 0.8rem;
-  }
-}
-
-/* מיכל לכפתור "חזור" - מצמיד אותו לימין */
-.top-nav-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-}
-
-/* סרגל הטאבים - קבוע ומרכזי */
-.tabs-container {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 0 auto 40px auto;
-  z-index: 10;
-  padding: 10px;
-  width: 100%;
-  max-width: 600px;
-  background: transparent;
-  border-bottom: 2px solid rgba(79, 70, 229, 0.1);
-}
-
-.tab-btn {
-  padding: 10px 5px;
+/* 4. כפתורים */
+.main-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  color: white;
   border: none;
-  background: transparent;
-  color: #64748b;
+  padding: 18px 50px;
+  border-radius: 18px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.main-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+}
+
+.main-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.secondary-btn {
+  background: none;
+  border: 1.5px solid #6366f1;
+  color: #6366f1;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.tab-btn.active {
-  color: #4f46e5;
-}
-
-.tab-btn.active::after {
-  content: '';
-  position: absolute;
-  bottom: -12px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #4f46e5;
-  border-radius: 10px;
-}
-
-.main-display-card {
-  background: transparent !important;
-  /* מסיר את הרקע הלבן הגדול */
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  width: 100%;
-}
-
-.content-card {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
-  padding: 35px;
   margin-bottom: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-  text-align: right;
-}
-
-.hero-card {
-  border-top: 4px solid #6366f1;
-}
-
-.summary-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.secondary-cards-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* שני כרטיסים זה לצד זה */
-  gap: 25px;
-}
-
-.summary-text-main {
-  font-size: 1.25rem;
-  line-height: 1.8;
-  color: #334155;
-  margin-top: 15px;
-}
-
-.badge {
-  background: #eef2ff;
-  color: #4f46e5;
-  padding: 6px 14px;
-  border-radius: 12px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.styled-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 15px;
-}
-
-.styled-list li {
-  padding: 12px 25px 12px 0;
-  position: relative;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.styled-list li::before {
-  content: "←";
-  position: absolute;
-  right: 0;
-  color: #6366f1;
-  font-weight: bold;
-}
-
-.task-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 10px;
-  border: 1px solid #f1f5f9;
-}
-
-@media (max-width: 850px) {
-  .secondary-cards-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-.quiz-container {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.quiz-questions-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  margin-top: 30px;
-}
-
-.quiz-question-card {
-  background: white;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  border: 1px solid #eef2ff;
-  text-align: right;
-  /* יישור לימין בעברית */
-}
-
-.question-number {
-  color: #6366f1;
-  font-weight: 800;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-
-.question-text {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 20px;
-}
-
-.options-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* שתי תשובות בשורה */
-  gap: 15px;
-}
-
-.option-btn {
-  background: #f8fafc;
-  border: 2px solid #f1f5f9;
-  padding: 15px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-family: 'Assistant', sans-serif;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-  color: #475569;
-}
-
-.option-btn:hover {
-  border-color: #6366f1;
-  background: #eff6ff;
-  color: #6366f1;
-}
-
-.hero-card {
-  max-width: 900px;
-  margin: 0 auto 30px auto;
-  line-height: 1.8;
-}
-
-.summary-text-main {
-  text-align: justify;
-  /* גורם לטקסט להיראות מסודר כמו בספר */
-  text-justify: inter-word;
-}
-
-/* --- עיצוב אזור המצגת בלבד --- */
-
-.presentation-container {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-/* .slides-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-  gap: 20px;
-  width: 100%;
-}
-
-.slide-card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 25px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
-  border: 1px solid #eef2ff;
-  position: relative;
   transition: all 0.3s ease;
-  min-height: 100px; 
+  align-self: flex-start;
+}
+
+.secondary-btn:hover {
+  background: rgba(99, 102, 241, 0.05);
+  transform: translateX(-5px);
+}
+
+/* 5. גריד של כרטיסיות (Dashboard) */
+.result-section {
+  width: 100%;
   display: flex;
   flex-direction: column;
-} */
-
-/* --- תצוגת 2 כרטיסים בשורה בלבד --- */
-
-.slides-grid {
-  display: grid !important;
-  /* הגדרה לשתי עמודות שוות בדיוק */
-  grid-template-columns: 1fr 1fr !important; 
-  gap: 30px !important; 
-  width: 100% !important;
-  max-width: 1000px; /* צמצום קל של הרוחב הכללי כדי שהכרטיסים לא יהיו רחבים מדי */
-  margin: 0 auto;
+  animation: fadeIn 0.6s ease-out;
 }
 
-.slide-card {
-  background: #ffffff !important;
-  border-radius: 20px !important;
-  padding: 30px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
-  border: 1px solid #eef2ff !important;
-  display: flex !important;
-  flex-direction: column !important;
-  /* המרווח שביקשת בין הכותרת לטקסט */
-  gap: 20px !important; 
-  min-height: 250px !important;
-  width: 450px;
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  width: 100%;
 }
 
-.slide-card:hover {
+.card {
+  background: none;
+  border-radius: 24px;
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
   transform: translateY(-5px);
-  /* border-color: #6366f1; */
-  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.1);
 }
 
-.slide-badge {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #6366f1;
-  color: white;
-  padding: 4px 12px;
-  font-size: 0.75rem;
-  font-weight: 800;
-  border-bottom-right-radius: 12px;
+.full-width-card {
+  grid-column: 1 / -1;
 }
 
-.slide-title {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #1e293b;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #f1f5f9;
-  margin-top: 10px; /* רווח מהבאג' */
-}
-
-.slide-body {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #475569;
-  flex-grow: 1; /* דוחף את התוכן למלא את הכרטיס */
-}
-
-/* התאמה לנייד - שקף אחד בכל שורה */
-@media (max-width: 600px) {
-  .slides-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.slide-points {
-  list-style: none;
-  padding: 0;
-}
-
-.slide-points li {
-  margin-bottom: 12px;
-  padding-right: 25px;
-  position: relative;
-}
-
-.slide-points li::before {
-  content: "✦";
-  position: absolute;
-  right: 0;
-  color: #6366f1;
-  font-weight: bold;
-}
-
-/* התאמה לנייד */
-@media (max-width: 600px) {
-  .slides-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.display-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.date-text {
-  text-align: center;
-  color: #94a3b8;
-  margin-bottom: 40px;
-  font-size: 1rem;
-}
-
-/* 6. רכיבי תוכן פנימיים (סיכום, נקודות, משימות) */
-.summary-text-large {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #334155;
-  margin-bottom: 30px;
+.highlight-card {
+  border-right: 6px solid #6366f1;
+  background: linear-gradient(to bottom left, #ffffff, #f9fafb);
 }
 
 .card-tag {
   background: #f1f5f9;
   padding: 6px 14px;
   border-radius: 10px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #6366f1;
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-.info-box {
-  background: #f8fafc;
-  padding: 25px;
-  border-radius: 20px;
-  margin-bottom: 30px;
-  border-right: 4px solid #6366f1;
+.summary-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #334155;
 }
 
+/* 6. Checklist ומשימות */
 .action-list {
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 .action-item-checkbox {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  padding: 18px 25px;
-  border-radius: 16px;
   display: flex;
   align-items: center;
   gap: 15px;
-  transition: all 0.2s ease;
+  background: #f8fafc;
+  margin-bottom: 10px;
+  padding: 16px;
+  border-radius: 14px;
+  transition: 0.2s;
 }
 
 .action-item-checkbox:hover {
-  border-color: #6366f1;
-  background: #fcfdff;
+  background: #f1f5f9;
 }
 
 .custom-checkbox {
@@ -564,39 +218,17 @@ h3{
   accent-color: #6366f1;
 }
 
-/* 7. כפתור ראשי ואנימציות */
-.main-btn {
-  /* background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); */
-  color: #615e5e;
-  border: none;
-  padding: 18px 50px;
-  border-radius: 18px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  width: 100%;
-  cursor: pointer;
-  /* box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2); */
-  transition: all 0.3s ease;
-}
-
-.main-btn:hover:not(:disabled) {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
-}
-
+/* 7. אנימציות וטעינה */
 .loader-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  /* מרכז אופקית */
   gap: 12px;
-  /* רווח בין הספינר לטקסט */
-  width: 100%;
 }
 
 .spinner {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   border-top-color: #fff;
@@ -604,38 +236,20 @@ h3{
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* התאמה לנייד */
 @media (max-width: 768px) {
-  .main-display-card {
-    padding: 30px 20px;
+  .cards-grid {
+    grid-template-columns: 1fr;
   }
-
-  .display-title {
-    font-size: 1.8rem;
-  }
-
-  .tabs-container {
-    gap: 10px;
-  }
-
-  .tab-btn {
-    font-size: 0.9rem;
+  .App {
+    padding: 40px 15px;
   }
 }
