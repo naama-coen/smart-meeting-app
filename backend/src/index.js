@@ -1,30 +1,34 @@
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
+const fs = require('fs'); // הוספת מודול מערכת הקבצים
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { GoogleAIFileManager } = require("@google/generative-ai/server");
 require('dotenv').config();
 
 const app = express();
-// Allow requests from the frontend dev origin
 app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 
-const upload = multer({ dest: 'uploads/' }); // שמירה זמנית של הקובץ
+// עדכון הגדרות multer עם הגבלת נפח של 25MB
+const upload = multer({ 
+  dest: 'uploads/',
+  limits: { fileSize: 25 * 1024 * 1024 } 
+});
+
 const fileManager = new GoogleAIFileManager(process.env.GEMINI_API_KEY);
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const storage = require('./storage'); // module to persist summaries in data/summaries.json
+const storage = require('./storage');
 
 app.post('/api/summarize', upload.single('audio'), async (req, res) => {
   try {
-    // Validate upload
     if (!req.file) {
-      return res.status(400).json({ error: 'No file uploaded (field name must be "audio")' });
+      return res.status(400).json({ error: 'No file uploaded' });
     }
 
     const filePath = req.file.path;
 
-    // 1. העלאת הקובץ ל-Google AI Cloud (חובה עבור קבצי מדיה)
+    // 1. העלאת הקובץ ל-Google AI Cloud
     let uploadResult;
     try {
       uploadResult = await fileManager.uploadFile(filePath, {
@@ -32,83 +36,92 @@ app.post('/api/summarize', upload.single('audio'), async (req, res) => {
         displayName: "Meeting Audio",
       });
     } catch (uErr) {
-      console.error('Error uploading file to GoogleAI:', uErr);
-      return res.status(502).json({ error: 'Failed to upload file to AI service', details: uErr.message });
+      console.error('Error uploading to GoogleAI:', uErr);
+      // מחיקת הקובץ גם במקרה של שגיאה בהעלאה
+      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+      return res.status(502).json({ error: 'Failed to upload to AI service' });
     }
 
-    // 2. קריאה ל-Gemini 2.5 Flash לניתוח האודיו
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-    let result;
+    // מחיקת הקובץ מהשרת המקומי מיד לאחר ההעלאה לגוגל (פינוי מקום)
+    if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+
+    // 2. הגדרת המודל
+    const model = genAI.getGenerativeModel({
+      model: "gemini-flash-latest",
+      generationConfig: { responseMimeType: "application/json" }
+    });
+
+    const promptText = `Analyze the provided audio content. Your task is to generate a comprehensive response in HEBREW.
+    You must provide:
+    1. A summary of the conversation.
+    2. A quiz based on the content (at least 3 multiple-choice questions).
+    3. A presentation structure (at least 3 slides).
+
+    STRUCTURE:
+    {
+      "title": "כותרת השיחה",
+      "date": "תאריך (אם מוזכר)",
+      "summary": "סיכום קצר",
+      "key_points": ["נקודה 1", "נקודה 2"],
+      "action_items": [
+        {"description": "תיאור המשימה", "assigned_to": "אחראי", "status": "בטיפול"}
+      ],
+      "conclusion": "מסקנה סופית",
+      "quiz": [
+        {
+          "question": "השאלה",
+          "options": ["אופציה 0", "אופציה 1", "אופציה 2", "אופציה 3"],
+          "correct_answer_index": 0
+        }
+      ],
+      "presentation": [
+        {
+          "slide_title": "כותרת שקף",
+          "bullet_points": ["נקודה א", "נקודה ב"]
+        }
+      ]
+    }`;
+
     try {
-      console.log("Generating content with file URI:", uploadResult.file.uri);
-      result = await model.generateContent([
+      const result = await model.generateContent([
         {
           fileData: {
             mimeType: uploadResult.file.mimeType,
             fileUri: uploadResult.file.uri
           }
         },
-        { text: 
-       
- `Analyze the provided audio content. Your task is to summarize the main discussion points, list actionable items, and provide a final conclusion.
-
-IMPORTANT: 
-1. The response must be STRICTLY in JSON format.
-2. All content (values) inside the JSON must be written in HEBREW.
-3. Do not include any introductory or concluding text. Return only the JSON object.
-
-Structure:
-{
-  "title": "כותרת מתאימה בעברית",
-  "date": "תאריך אם מוזכר (או מחרוזת ריקה)",
-  "summary": "סיכום קצר של השיחה בעברית",
-  "key_points": [
-    "נקודה חשובה 1 בעברית",
-    "נקודה חשובה 2 בעברית"
-  ],
-  "action_items": [
-    {
-      "description": "תיאור המשימה בעברית",
-      "assigned_to": "שם האחראי בעברית (אם ידוע)",
-      "status": "בטיפול"
-    }
-  ],
-  "conclusion": "שורה תחתונה או מסקנה סופית מהשיחה בעברית"
-}`
-        }
+        { text: promptText }
       ]);
+
+      const textResponse = result.response.text();
+      const parsedData = JSON.parse(textResponse);
+
+      // 3. שמירת הנתונים במערכת האחסון
+      const entry = {
+        id: Date.now().toString(),
+        createdAt: new Date().toISOString(),
+        originalFileName: req.file.originalname,
+        summary: parsedData 
+      };
+
+      await storage.saveSummary(entry);
+
+      res.json({ success: true, data: parsedData, saved: entry });
+
     } catch (gErr) {
-      console.error('Error generating content from AI:', gErr);
-      return res.status(502).json({ error: 'AI generation failed', details: gErr.message });
+      console.error('AI Error:', gErr);
+      res.status(502).json({ error: 'AI processing failed' });
     }
-
-    const text = result.response.text();
-
-    // ניסיון לפרסר את הטקסט ל־JSON — אם לא תקין נשמור את הטקסט הגולמי
-    let parsed = null;
-    try {
-      parsed = JSON.parse(text);
-    } catch (e) {
-      parsed = null;
-    }
-
-    const entry = {
-      id: Date.now().toString(),
-      createdAt: new Date().toISOString(),
-      originalFileName: req.file.originalname,
-      summary: parsed ?? text
-    };
-
-    await storage.saveSummary(entry);
-
-    res.json({ success: true, data: text, saved: entry });
   } catch (error) {
-    console.error('Unexpected error in /api/summarize:', error);
+    // טיפול ספציפי בשגיאת נפח של multer
+    if (error.code === 'LIMIT_FILE_SIZE') {
+        return res.status(400).json({ error: 'File too large. Max size is 25MB' });
+    }
+    console.error('General Error:', error);
     res.status(500).json({ error: error.message });
   }
 });
 
-// endpoint לשליפת כל הסיכומים שנשמרו
 app.get('/api/summaries', async (req, res) => {
   try {
     const summaries = await storage.readSummaries();
