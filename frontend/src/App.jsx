@@ -25,14 +25,11 @@ function App() {
     formData.append('audio', file);
 
     try {
-      // const response = await axios.post('http://localhost:3001/api/summarize', formData);
-      // const response = await axios.post('http://backend:3001/api/summarize', formData);
+      
       const response = await axios.post('/api/summarize', formData);
 
-      // ברוב המקרים זה כבר אובייקט בגלל responseMimeType בשרת
       const result = response.data?.data || response.data?.saved?.summary;
 
-      // מנגנון הגנה קטן אם בכל זאת הגיע מחרוזת JSON
       let parsed = result;
       if (typeof result === 'string') {
         const clean = result.replace(/```json|```/g, '').trim();
@@ -97,7 +94,6 @@ function App() {
           </div>
         ) : (
           <div className="result-section">
-            {/* תפריט לשוניות (Tabs) בעיצוב מודרני */}
             <div className="tabs-container">
               <button
                 className={`tab-btn ${activeTab === 'summary' ? 'active' : ''}`}

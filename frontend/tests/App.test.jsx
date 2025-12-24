@@ -11,7 +11,6 @@ describe('App Component - UI Unit Tests', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     window.alert = vi.fn();
-    // גורמים ל-axios להמתין מעט כדי שנוכל לראות את ה-Loader
     axios.post = vi.fn().mockImplementation(() => 
       new Promise(resolve => setTimeout(() => resolve({ data: { data: {} } }), 100))
     );
@@ -40,20 +39,17 @@ describe('App Component - UI Unit Tests', () => {
   it('displays loader while uploading', async () => {
     render(<App />);
     
-    // 1. בחירת קובץ
     const file = new File(['audio'], 'test.mp3', { type: 'audio/mpeg' });
     const input = document.getElementById('file-upload');
     await act(async () => {
       fireEvent.change(input, { target: { files: [file] } });
     });
 
-    // 2. לחיצה על כפתור הניתוח
     const uploadButton = screen.getByText(/התחל ניתוח תוכן/i);
     await act(async () => {
       fireEvent.click(uploadButton);
     });
 
-    // 3. בדיקה שהספינר מופיע (באמצעות ה-class שקיים בקוד שלך)
     const loader = document.querySelector('.spinner');
     expect(loader).not.toBeNull();
   });

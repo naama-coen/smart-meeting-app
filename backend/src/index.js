@@ -10,7 +10,6 @@ const app = express();
 app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 
-// הגדרת multer עם הגבלת נפח של 25MB
 const uploadConfig = multer({ 
   dest: 'uploads/',
   limits: { fileSize: 25 * 1024 * 1024 } 
@@ -21,7 +20,6 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const storage = require('./storage');
 
 app.post('/api/summarize', (req, res) => {
-  // הפעלה של multer בצורה שמאפשרת תפיסת שגיאות ולידציה לפני ה-Route
   uploadConfig(req, res, async (err) => {
     if (err instanceof multer.MulterError) {
       if (err.code === 'LIMIT_FILE_SIZE') {
@@ -39,7 +37,6 @@ app.post('/api/summarize', (req, res) => {
 
       const filePath = req.file.path;
 
-      // 1. העלאת הקובץ ל-Google AI Cloud
       let uploadResult;
       try {
         uploadResult = await fileManager.uploadFile(filePath, {
@@ -52,10 +49,8 @@ app.post('/api/summarize', (req, res) => {
         return res.status(502).json({ error: 'Failed to upload to AI service' });
       }
 
-      // מחיקת הקובץ מהשרת המקומי מיד לאחר ההעלאה לגוגל
       if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
 
-      // 2. הגדרת המודל
       const model = genAI.getGenerativeModel({
         model: "gemini-flash-latest",
         generationConfig: { responseMimeType: "application/json" }
@@ -104,7 +99,6 @@ app.post('/api/summarize', (req, res) => {
 
       const textResponse = result.response.text();
       
-      // ולידציית JSON עבור מקרי קצה ובדיקות יחידה
       let parsedData;
       try {
         parsedData = JSON.parse(textResponse);
@@ -113,7 +107,6 @@ app.post('/api/summarize', (req, res) => {
         return res.status(502).json({ error: 'AI processing failed' });
       }
 
-      // 3. שמירת הנתונים במערכת האחסון
       const entry = {
         id: Date.now().toString(),
         createdAt: new Date().toISOString(),

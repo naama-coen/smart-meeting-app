@@ -9,7 +9,6 @@ async function ensureDataFile() {
   try {
     await fs.access(DATA_FILE);
   } catch (err) {
-    // File doesn't exist — create with empty array
     await fs.writeFile(DATA_FILE, JSON.stringify([]), 'utf8');
   }
 }

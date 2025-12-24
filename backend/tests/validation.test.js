@@ -11,7 +11,6 @@ describe('API Integration - Edge Cases', () => {
   });
 
   it('should return 400 if file is too large (over 25MB)', async () => {
-    // יצירת Buffer מזויף בגודל 26MB
     const bigFile = Buffer.alloc(26 * 1024 * 1024); 
     const res = await request(app)
       .post('/api/summarize')
